@@ -97,6 +97,7 @@ export default function SignUpPage() {
           </Button>
         </div>
       </Form>
+      
       <div className="text-center mt-3">
         <h2>If you have an account ? <Link href={"/signin"} className="text-blue-500">Login</Link> </h2>
         </div>

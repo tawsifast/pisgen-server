@@ -3,6 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {Button,Card,Description,FieldError,Form,Input,Label,TextField,} from "@heroui/react";
 import Link from "next/link";
+import { GrGoogle } from "react-icons/gr";
 
 export default function SignInPage() {
 
@@ -17,6 +18,12 @@ export default function SignInPage() {
     })
     console.log(data, error);
   };
+
+  const handleGoogleSignIn = async () =>{
+    const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  }
 
   return (
     <Card className="border mx-auto w-125 py-10 mt-5">
@@ -78,6 +85,10 @@ export default function SignInPage() {
           </Button>
         </div>
       </Form>
+      <div className="text-center mt-3">
+        <p>Or</p>
+        <Button onClick={handleGoogleSignIn} variant="outline" className={"w-full"}><GrGoogle/> Sign in with google</Button>
+      </div>
       <div className="text-center mt-3">
       <h2>Don't have an account ? <Link href={"/signup"} className="text-blue-500">Register</Link> </h2>
       </div>
