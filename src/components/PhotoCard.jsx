@@ -1,5 +1,6 @@
 import { Button, Card, Chip } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { PiDownloadSimpleFill } from "react-icons/pi";
@@ -24,7 +25,9 @@ const PhotoCard = ({ photo }) => {
             <p className="flex items-center gap-2 text-lg"><FaHeart />{photo.likes}</p>
             <p className="flex items-center gap-2 text-lg"><PiDownloadSimpleFill />{photo.downloads}</p>
         </div>
+        <Link href={`all-photos/${photo.id}`}>
         <Button variant="outline" className={"w-full"}>View</Button>
+        </Link>
     </Card>
   );
 };
